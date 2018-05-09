@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://118.24.122.102:3306/DB_I_T_PUSH_TEST?serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">dsz@123</property>
+        <!-- JDBC连接池的大小 -->
+        <property name="connection.pool_size">5</property>
+
+        <!-- SQL 方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+
+        <!-- EnaHibernateHelpernate's automatic session context management 上下文为线程级别 -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache 配置c3p0缓存连接池  -->
+        <property name="cache.provider_class">org.hibernate.c3p0.internal.C3P0ConnectionProvider</property>
+        <!--在连接池中可用数据库连接的最小数目-->
+        <property name="c3p0.min_size">6</property>
+        <!--设定数据库所连接的最大数目-->
+        <property name="c3p0.max_size">50</property>
+
+        <property name="c3p0.timeout">18000</property>
+        <!--可以被缓存的PreparedStatement的最大数目-->
+        <property name="c3p0.max_statement">50</property>
+        <!--当连接池里的连接用完的时候，c3p0一下获取的新的连接数-->
+        <property name="c3p0.acquire_increment">1</property>
+        <!--连接对象应该多长时间被自动校验 以秒为单位-->
+
+        <property name="c3p0.idle_test_period">100</property>
+        <!--最多可以创建Statements对象的个数，就是可以执行SQL语句的对象个数-->
+        <property name="c3p0.max_statements">0</property>
+
+        <!--SQL语句输出-->
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <!--自动更新数据库的级别-->
+        <property name="hbm2ddl.auto">update</property>
+
+        <mapping package="com.victoryze.web.italker.push.bean.db"
+                 class="com.victoryze.web.italker.push.bean.db.User"
+        />
+        <mapping package="com.victoryze.web.italker.push.bean.db"
+                 class="com.victoryze.web.italker.push.bean.db.UserFollow"
+        />
+        <mapping package="com.victoryze.web.italker.push.bean.db"
+                 class="com.victoryze.web.italker.push.bean.db.Message"
+        />
+        <mapping package="com.victoryze.web.italker.push.bean.db"
+                 class="com.victoryze.web.italker.push.bean.db.Group"
+        />
+        <mapping package="com.victoryze.web.italker.push.bean.db"
+                 class="com.victoryze.web.italker.push.bean.db.GroupMember"
+        />
+        <mapping package="com.victoryze.web.italker.push.bean.db"
+                 class="com.victoryze.web.italker.push.bean.db.PushHistory"
+        />
+        <mapping package="com.victoryze.web.italker.push.bean.db"
+                 class="com.victoryze.web.italker.push.bean.db.Apply"
+        />
+
+    </session-factory>
+</hibernate-configuration>
